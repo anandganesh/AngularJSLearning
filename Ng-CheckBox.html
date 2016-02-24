@@ -1,0 +1,21 @@
+<html ng-app="App">
+<head>
+        <script
+ src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js">
+</script>
+    <script>
+        var app = angular.module('App',[]);
+        app.controller('MainCtrl',function(){
+            
+        });
+    </script>
+    </head>
+    <body ng-controller="MainCtrl as Ctrl">
+        CheckBox
+        <input type="checkbox" ng-model="selected" ng-true-value="YES" ng-false-value="NO">
+        Using ng-checked:
+ <input type="checkbox"
+ ng-checked="selected === 'YES'">
+
+    </body>
+</html>

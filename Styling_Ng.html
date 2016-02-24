@@ -1,0 +1,24 @@
+<html ng-app="App">
+    <head>
+        <script
+ src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js">
+</script>
+        <script>
+            var app = angular.module('App',[]);
+            app.controller('MainCtrl',function(){
+                
+            });
+        </script>
+        <style>
+            .ng-valid-required{
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body ng-controller="MainCtrl as Ctrl">
+        <form name="myForm">
+            <input type="text" required ng-minlength="3" ng-model="Ctrl.Name" name="name">
+            <button type="submit" ng-show="myForm.name.$error.minlength" >Submit</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<html ng-app="App">
+    <head>
+        <script
+ src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js">
+</script>
+        <script>
+            var app = angular.module('App',[]);
+            app.controller('MainCtrl',function(){
+                var self = this;
+                self.change = function(tab){
+                    self.tab = tab;
+                };
+            });
+        </script>
+    </head>
+    <body ng-controller="MainCtrl as Ctrl">
+        <button ng-click="Ctrl.change('Tab1')">Tab 1</button>
+        <button ng-click="Ctrl.change('Tab2')">Tab 2</button>
+        <div ng-switch on="Ctrl.tab">
+            <div ng-switch-when="Tab1">
+                <span> I am in Tab1</span>
+            </div>
+            <div ng-switch-when="Tab2">
+                <span> I am in Tab2</span>
+            </div>
+        
+        </div>
+    </body>
+</html>

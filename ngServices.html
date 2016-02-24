@@ -1,0 +1,54 @@
+<html ng-app="App">
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js">
+	
+</script>
+<script>
+	var app = angular.module('App', []);
+	
+	app.controller('MainCtrl', function() {
+        var self = this;
+		self.change = function(tab) {
+			self.tab = tab;
+		};
+
+	});
+	app.controller('SubCtrl', function() {
+        var self = this;
+		self.list = [ {
+			id : 1,
+			label : 'anand'
+		}, {
+			id : 2,
+			label : 'ganesh'
+		} ];
+		self.add = function() {
+			self.list.push({
+				id : self.list.length + 1,
+				label : 'list' + self.list.length
+			});
+		};
+	});
+</script>
+</head>
+<body ng-controller="MainCtrl as Ctrl">
+	<button ng-click="Ctrl.change('Tab1')">Tab 1</button>
+	<button ng-click="Ctrl.change('Tab2')">Tab 2</button>
+	<div ng-switch on="Ctrl.tab">
+		<div ng-switch-when="Tab1">
+			<div ng-controller="SubCtrl as sub">
+				<div ng-repeat="item in sub.list">{{item.label}}</div>
+				<button ng-click="sub.add()">Add</button>
+			</div>
+		</div>
+		<div ng-switch-when="Tab2">
+			<div ng-controller="SubCtrl as sub">
+				<div ng-repeat="item in sub.list">{{item.label}}</div>
+				<button ng-click="sub.add()">Add</button>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>

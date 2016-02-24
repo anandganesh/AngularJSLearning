@@ -1,0 +1,33 @@
+<html ng-app="App">
+    <head>
+        <script
+ src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.js">
+</script>
+        <script>
+            var app = angular.module('App',[]);
+            app.controller('MainCtrl',function(){
+                var self = this;
+                self.submit1=function(){
+                    console.log(self.user);
+                };
+                self.submit2=function(){
+                    console.log(self.userName+" "+self.password);
+                };
+            });
+        
+        </script>
+    </head>
+    <body ng-controller="MainCtrl as ctrl">
+        <form ng-submit="ctrl.submit1()">
+            <input type="text" ng-model="ctrl.user.userName" required ng-minlength="4">
+            <input type="password" ng-model="ctrl.user.password">
+            <button type="submit">Sumbit1</button>
+        </form>
+        <form ng-submit="ctrl.submit2()">
+            <input type="text" ng-model="ctrl.userName">
+            <input type="password" ng-model="ctrl.password">
+            <button type="submit">Sumbit2</button>
+        </form>
+    
+    </body>
+</html>

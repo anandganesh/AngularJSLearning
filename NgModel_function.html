@@ -1,0 +1,26 @@
+<html ng-app="App">
+<head>
+    <script
+ src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js">
+</script>
+<script>
+        var app = angular.module('App',[]);
+        app.controller('MainCtrl',[function(){
+            var self = this;
+            self.Change = function(){
+                self.Password='as';
+                self.Name='Anand';
+            };
+        self.Submit = function(){
+                console.log(self.Password+" "+self.Name);
+            };
+        }]);
+    </script>
+</head>
+    <body ng-controller="MainCtrl as ctrl">
+        <input type="text" ng-model="ctrl.Name">
+        <input type="password" ng-model="ctrl.Password">
+        <button value="Change" ng-click="ctrl.Change()">Change</button>
+        <button value="submit" ng-click="ctrl.Submit()">Submit</button>
+    </body>
+</html>
